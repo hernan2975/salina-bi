@@ -1,0 +1,73 @@
+# Entornos virtuales
+venv/
+env/
+.venv/
+ENV/
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archivos de IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs y datos temporales
+logs/
+*.log
+temp/
+tmp/
+
+# Datos sensibles y configuración local
+config/local.yaml
+config/secrets.yaml
+.env
+.env.local
+
+# Salidas de ETL y procesamiento
+data/processed/*.parquet
+data/processed/*.csv
+data/interim/
+reports/
+
+# Modelos y cachés
+models/
+*.joblib
+*.pkl
+
+# Docker
+.dockerenv
+docker-compose.override.yml
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Archivos de sistema
+desktop.ini
+
+# Archivos de respaldo
+*.bak
+*.tmp
+
+# Archivos de Windows
+$RECYCLE.BIN/
+Desktop.ini
+
+# Datos crudos que NO deben commitearse (solo ejemplos)
+data/raw/*.xlsx
+data/raw/*.csv
+!data/raw/example_*.xlsx
+!data/raw/example_*.csv
+
+# Archivos generados por scripts
+deploy/dist/
