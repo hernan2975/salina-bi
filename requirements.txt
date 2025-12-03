@@ -1,0 +1,13 @@
+pandas>=2.0
+polars>=0.20          # Para ETL rápido en hardware limitado
+numpy>=1.24
+scikit-learn>=1.3     # Pronóstico liviano
+plotly>=5.18
+dash>=2.14            # Dashboard ejecutivo
+dash-bootstrap-components>=1.5
+openpyxl>=3.1         # Lectura de Excel desde administración
+pymodbus>=3.4         # Lectura de PLC (bombas, sensores)
+pydantic>=2.5         # Validación de esquemas
+PyYAML>=6.0
+weasyprint>=61.0      # Informes PDF imprimibles
+apache-airflow==2.8.4 # Opcional: orquestación (modo local)
