@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Esquema de Datos para Salinas",
+  "description": "Validación para datos de producción, energía y logística",
+  "type": "object",
+  "properties": {
+    "produccion": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fecha": { "type": "string", "format": "date" },
+          "pileta_id": { "type": "string", "pattern": "^P-[0-9]{3}$" },
+          "toneladas": { "type": "number", "minimum": 0.1, "maximum": 300 },
+          "calidad": { "type": "string", "enum": ["cruda", "lavada", "refinada"] },
+          "operario": { "type": "string", "minLength": 2 },
+          "turno": { "type": "string", "enum": ["madrugada", "mañana", "tarde"] },
+          "area_pileta": { "type": "number", "minimum": 1000, "maximum": 10000 },
+          "consumo_kwh": { "type": "number", "minimum": 0 },
+          "lote_senasa": { 
+            "type": "string", 
+            "pattern": "^SAL-LP-[0-9]{10}$",
+            "nullable": true
+          }
+        },
+        "required": ["fecha", "pileta_id", "toneladas", "calidad", "operario", "turno", "area_pileta"],
+        "additionalProperties": false
+      }
+    },
+    "logistica": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fecha": { "type": "string", "format": "date" },
+          "tipo": { "type": "string", "enum": ["entrada", "salida"] },
+          "toneladas": { "type": "number", "minimum": 0.1 },
+          "cliente_proveedor": { "type": "string" },
+          "transporte": { "type": "string" },
+          "destino_origen": { "type": "string" }
+        },
+        "required": ["fecha", "tipo", "toneladas", "cliente_proveedor"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["produccion"]
+}
