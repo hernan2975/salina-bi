@@ -1,0 +1,54 @@
+salina-bi/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── pyproject.toml
+│
+├── config/
+│   ├── settings.yaml          # Configurable por salina (Pagrún vs Celusal)
+│   └── etl_schema.json        # Esquema de datos validado
+│
+├── data/
+│   ├── raw/                   # Datos crudos (CSV, Excel, logs PLC)
+│   ├── processed/             # Datos limpios (Parquet)
+│   └── reference/             # Tablas maestras (turnos, calidades, clientes)
+│
+├── src/
+│   └── salinabi/
+│       ├── __init__.py
+│       ├── core/
+│       │   ├── ingestion.py       # Carga desde CSV, Excel, Modbus, APIs locales
+│       │   ├── transformation.py # Limpieza, enriquecimiento, validación
+│       │   └── metrics.py        # KPIs del sector salinero
+│       ├── domain/
+│       │   ├── production.py     # Modelo de producción (piletas, cosecha, secado)
+│       │   ├── energy.py         # Modelo energético (bombas, evaporación)
+│       │   └── logistics.py      # Modelo logístico (stocks, despachos)
+│       ├── services/
+│       │   ├── compliance.py     # SENASA, AFIP, medioambiente
+│       │   └── forecasting.py    # Pronóstico de producción (ML liviano)
+│       ├── visualization/
+│       │   ├── dashboard.py      # Panel ejecutivo (Plotly Dash)
+│       │   └── reports.py        # Informes PDF/Excel para operativos
+│       └── cli/
+│           └── main.py           # ETL + actualización diaria
+│
+├── notebooks/
+│   ├── 01_data_profiling.ipynb
+│   ├── 02_kpi_definition.ipynb
+│   └── 03_forecast_model.ipynb
+│
+├── docs/
+│   ├── data_dictionary.md
+│   ├── kpi_manual.md
+│   └── salina_model.md          # Modelo conceptual del negocio salinero
+│
+├── tests/
+│   ├── unit/
+│   └── integration/
+│
+└── deploy/
+    ├── docker-compose.yml       # Opcional: para server local
+    ├── update_offline.bat       # Script para netbook en campo
+    └── backup_to_usb.sh
