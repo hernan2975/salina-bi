@@ -1,0 +1,65 @@
+# Configuración para Salina Pagrún (ajustar para Celusal u otra)
+salina:
+  nombre: "Salinas Pagrún SRL"
+  cuit: "30-12345678-9"
+  ubicacion:
+    provincia: "La Pampa"
+    localidad: "Guatrache"
+    coordenadas: "-37.25, -63.85"
+
+# Piletas (ajustar según infraestructura real)
+piletas:
+  - id: "P-101"
+    area_m2: 5000
+    profundidad_cm: 40
+    tipo: "primaria"
+  - id: "P-102"
+    area_m2: 5000
+    profundidad_cm: 40
+    tipo: "primaria"
+  - id: "P-201"
+    area_m2: 3000
+    profundidad_cm: 30
+    tipo: "secundaria"
+  - id: "P-301"
+    area_m2: 2000
+    profundidad_cm: 25
+    tipo: "lavado"
+
+# Turnos operativos
+turnos:
+  - nombre: "madrugada"
+    inicio: "00:00"
+    fin: "08:00"
+  - nombre: "mañana"
+    inicio: "08:00"
+    fin: "16:00"
+  - nombre: "tarde"
+    inicio: "16:00"
+    fin: "00:00"
+
+# Umbrales de alerta (ajustables por salina)
+alertas:
+  rendimiento_min_tn_ha: 15.0
+  kwh_max_por_tn: 30.0
+  calidad_refinada_min_pct: 60.0
+  stock_max_dias: 45
+
+# Integración con hardware (opcional)
+plc:
+  enabled: true
+  host: "192.168.1.100"
+  port: 502
+  bombas:
+    - id: "B1"
+      registro: 40001
+    - id: "B2"
+      registro: 40002
+
+# Cumplimiento
+senasa:
+  prefijo_lote: "SAL-LP-"
+  vigencia_dias: 730  # 2 años
+afip:
+  regimen: "general"
+  alicuota_iva: 21.0
