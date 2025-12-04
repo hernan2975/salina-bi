@@ -1,0 +1,12 @@
+schema = pl.Schema({
+    "fecha": pl.Date,
+    "produccion_total_tn": pl.Float32,
+    "rendimiento_promedio_tn_ha": pl.Float32,
+    "kwh_total": pl.Float32,
+    "kwh_por_tn": pl.Float32,
+    "calidad_refinada_pct": pl.Float32,
+    "stock_final_tn": pl.Float32,
+    "stock_dias": pl.Float32,
+    "senasa_trazable_pct": pl.Float32,
+    "alertas": pl.List(pl.Utf8)
+})
