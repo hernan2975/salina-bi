@@ -1,0 +1,5 @@
+fecha,tipo,toneladas,cliente_proveedor,transporte,destino_origen,numero_factura
+2025-06-01,salida,80.0,"Panificadoras Pampeanas SRL","Camión PAT-123","Santa Rosa",A0001-00001234
+2025-06-01,salida,45.3,"Industrias Alimenticias SA","Camión LP-456","General Pico",A0001-00001235
+2025-06-02,entrada,10.0,"Proveedor Insumos Químicos","Flete propio","Guatrache",B0001-00000567
+2025-06-03,salida,60.0,"Cooperativa Agrícola Eduardo Castex","Camión EC-789","Eduardo Castex",A0001-00001236
