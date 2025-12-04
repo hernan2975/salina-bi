@@ -1,0 +1,16 @@
+import polars as pl
+schema = pl.Schema({
+    "fecha": pl.Date,
+    "pileta_id": pl.Utf8,
+    "toneladas": pl.Float32,
+    "calidad": pl.Categorical,
+    "operario": pl.Utf8,
+    "turno": pl.Categorical,
+    "area_pileta": pl.Float32,
+    "consumo_kwh": pl.Float32,
+    "lote_senasa": pl.Utf8,
+    "rendimiento_tn_ha": pl.Float32,
+    "kwh_por_tn": pl.Float32,
+    "es_dia_habil": pl.Boolean,
+    "semana_anio": pl.Int16
+})
