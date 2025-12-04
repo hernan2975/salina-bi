@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  salina-bi:
+    image: python:3.11-slim
+    container_name: salina-bi
+    volumes:
+      - ../:/app
+      - salina_data:/app/data/processed
+      - salina_reports:/app/reports
+    working_dir: /app
+    command: >
+      bash -c "
+        pip install -r requirements.txt &&
+        python -c '
+          from salinabi.cli.main import update_daily;
+          import click;
+          ctx = click.Context(update_daily);
+          update_daily.callback(source=\"data/raw/produccion_hoy.csv\")
+        ' &&
+        python -c '
+          from salinabi.cli.main import report;
+          import click;
+          ctx = click.Context(report);
+          report.callback(tipo=\"diario\", output=\"reports/informe_hoy.pdf\")
+        '
+      "
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8050:8050"
+    restart: unless-stopped
+
+  dashboard:
+    image: python:3.11-slim
+    container_name: salina-dashboard
+    volumes:
+      - ../:/app
+      - salina_data:/app/data/processed
+    working_dir: /app
+    command: >
+      bash -c "
+        pip install -r requirements.txt &&
+        python -c '
+          from salinabi.visualization.dashboard import create_dashboard;
+          import polars as pl;
+          df = pl.read_parquet(\"data/processed/produccion.parquet\");
+          app = create_dashboard(df);
+          app.run_server(host=\"0.0.0.0\", port=8050, debug=False)
+        '
+      "
+    ports:
+      - "8050:8050"
+    restart: unless-stopped
+
+volumes:
+  salina_data:
+  salina_reports:
