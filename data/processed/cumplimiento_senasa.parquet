@@ -1,0 +1,12 @@
+schema = pl.Schema({
+    "lote_senasa": pl.Utf8,
+    "fecha_cosecha": pl.Date,
+    "pileta_id": pl.Utf8,
+    "toneladas": pl.Float32,
+    "calidad": pl.Utf8,
+    "fecha_despacho": pl.Date,
+    "cliente": pl.Utf8,
+    "dias_desde_cosecha": pl.Int16,
+    "vigente": pl.Boolean,
+    "observaciones": pl.Utf8
+})
