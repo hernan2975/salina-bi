@@ -1,0 +1,5 @@
+pileta_id,area_m2,profundidad_cm,tipo,fase_actual,ultima_limpieza
+P-101,5000,40,primaria,evaporacion,2025-05-15
+P-102,5000,40,primaria,llenado,2025-05-20
+P-201,3000,30,secundaria,cosecha,2025-06-01
+P-301,2000,25,lavado,lavado,2025-06-02
