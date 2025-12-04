@@ -1,0 +1,7 @@
+fecha,pileta_id,toneladas,calidad,operario,turno,area_pileta,consumo_kwh,lote_senasa
+2025-06-01,P-101,125.3,refinada,Juan,madrugada,5000,310,SAL-LP-2025060101
+2025-06-01,P-102,98.7,lavada,María,mañana,5000,220,
+2025-06-01,P-201,45.2,cruda,Carlos,tarde,3000,85,
+2025-06-02,P-101,118.9,refinada,Juan,madrugada,5000,295,SAL-LP-2025060201
+2025-06-02,P-201,42.8,lavada,María,mañana,3000,78,
+2025-06-03,P-301,30.5,refinada,Elena,tarde,2000,62,SAL-LP-2025060301
