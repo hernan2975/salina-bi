@@ -1,0 +1,5 @@
+codigo,nombre,tipo,direccion,localidad,provincia,cuit,condicion_iva
+CLI-001,"Panificadoras Pampeanas SRL",cliente,"Ruta 5 km 12","Santa Rosa","La Pampa","30-11223344-5","Responsable Inscripto"
+CLI-002,"Industrias Alimenticias SA",cliente,"Av. San Martín 456","General Pico","La Pampa","30-22334455-6","Responsable Inscripto"
+CLI-003,"Cooperativa Agrícola Eduardo Castex",cliente,"Ruta 107 km 3","Eduardo Castex","La Pampa","33-33445566-7","Exento"
+PROV-001,"Proveedor Insumos Químicos",proveedor,"Ruta 35 km 22","Guatrache","La Pampa","30-44556677-8","Responsable Inscripto"
