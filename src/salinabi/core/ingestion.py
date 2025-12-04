@@ -1,15 +1,24 @@
 import polars as pl
 from pathlib import Path
-from .transformation import clean_production_data
+from typing import Union, List
+import yaml
+from ..domain.production import validate_production_data
 
-def ingest_from_excel(path: Path) -> pl.DataFrame:
-    """Carga planilla de producción diaria (formato Celusal/Pagrún)."""
-    try:
-        df = pl.read_excel(
-            path,
-            sheet_name="Producción",
-            read_options={"infer_schema_length": 1000}
-        )
-        return clean_production_data(df)
-    except Exception as e:
-        raise ValueError(f"Error al cargar {path}: {e}")
+def ingest_csv(file_path: Union[str, Path]) -> pl.DataFrame:
+    """Carga y valida datos desde CSV."""
+    df = pl.read_csv(file_path, infer_schema_length=10000)
+    return validate_production_data(df)
+
+def ingest_excel(file_path: Union[str, Path], sheet_name: str = "Producción") -> pl.DataFrame:
+    """Carga datos desde Excel (formato típico de salinas)."""
+    df = pl.read_excel(file_path, sheet_name=sheet_name)
+    return validate_production_data(df)
+
+def ingest_plc_logs(file_path: Union[str, Path]) -> pl.DataFrame:
+    """Carga logs de PLC (bombas, sensores)."""
+    return pl.read_csv(file_path)
+
+def load_config(config_path: Union[str, Path] = "config/settings.yaml") -> dict:
+    """Carga configuración de la salina."""
+    with open(config_path) as f:
+        return yaml.safe_load(f)
