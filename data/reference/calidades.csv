@@ -1,0 +1,4 @@
+calidad,descripcion,uso_permitido,nacl_min_pct
+cruda,"Sal sin procesar, alta humedad","Industria química",85.0
+lavada,"Sal lavada con agua saturada","Industria alimenticia (procesamiento)",92.0
+refinada,"Sal refinada, seca, tamizada","Consumo humano directo",98.5
